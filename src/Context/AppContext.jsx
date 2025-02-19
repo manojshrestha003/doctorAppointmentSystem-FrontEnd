@@ -9,11 +9,8 @@ export  const AppContex =  createContext();
 const AppContextProvier = (props)=>{
     const backendUrl = import.meta.env.VITE_BACKEND_URL
     const [doctors, setDoctor] = useState([]);
-
-    const  value  = {
-         doctors
-
-    }
+    const [token , setToken] = useState(localStorage.getItem('token')?localStorage.getItem('token'):false);
+   
     const getDoctorsData = async()=>{
         try {
             const {data} = await axios.get(backendUrl + '/api/doctor/list')
@@ -30,6 +27,10 @@ const AppContextProvier = (props)=>{
         }
         
     }
+    const  value  = {
+        doctors, token, setToken, backendUrl
+       
+   }
     useEffect(()=>{
          getDoctorsData()
     },[])
