@@ -21,6 +21,24 @@ const MyAppointments = () => {
       
     }
   }
+  const  cancelAppointment=  async(appointmentId)=>{
+    try {
+          const {data} = await axios.post(backendUrl+'/api/user/cancel-appointment', {appointmentId}, {
+            headers: { Authorization: `Bearer ${token}` }
+          })
+          if(data.success){
+            toast.success(data.message)
+            getuserAppointment()
+          }
+          else{
+            toast.error(data.message)
+          }
+    } catch (error) {
+      console.log(error)
+      toast.error(error.message)
+      
+    }
+  }
   useEffect(()=>{
     if(token){
       getuserAppointment()
@@ -45,8 +63,9 @@ const MyAppointments = () => {
               <p className="mt-2 text-sm font-medium"><span className="font-semibold">Date & Time:</span> {item.slotDate} {item.slotTime}</p>
             </div>
             <div className="flex flex-col gap-2 md:flex-row md:gap-4">
-              <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Pay Online</button>
-              <button className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">Cancel Appointment</button>
+             {!item.cancelled &&  <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Pay Online</button>}
+              {!item.cancelled &&<button onClick={()=>{cancelAppointment(item._id)}}  className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">Cancel Appointment</button>}
+              {item.cancelled && <button className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">Appointment Cancelled</button>}
             </div>
           </div>
         ))}
