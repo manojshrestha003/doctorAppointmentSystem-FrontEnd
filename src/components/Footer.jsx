@@ -6,8 +6,8 @@ const Footer = () => {
     <div className='w-full md:mx-10 bg-white text-gray-900 py-10 px-6'>
       <div className='grid grid-cols-1 md:grid-cols-3 gap-10'>
         {/* Left section */}
-        <div className='flex flex-col items-center md:items-start text-center md:text-left gap-4'>
-          <img src={assets.logo} alt='Logo' className='w-32' />
+        <div className='flex flex-col itemssss-center md:items-start text-center md:text-left gap-4'>
+          <img src={assets.docMeet} alt='Logo' className='w-32  border-r-4 rounded-lg' />
           <p className='text-gray-600 text-sm max-w-sm'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit accusantium qui facilis adipisci at necessitatibus magni consectetur, sint consequuntur, id nam sapiente voluptas exercitationem vel.
           </p>
