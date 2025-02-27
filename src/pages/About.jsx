@@ -25,16 +25,16 @@ const About = () => {
         {/* Right Side - Text */}
         <div className="w-full md:w-1/2 space-y-4">
           <p className="text-gray-700 leading-relaxed">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae libero dolores molestiae natus mollitia nulla tempore velit, possimus, nihil ipsum assumenda, non repellat cumque inventore.
+          docMeet is a user-friendly doctor appointment booking app designed to make healthcare access simple and efficient. Users can easily search for doctors, check their availability, and schedule appointments with just a few taps. Whether for in-person visits or telemedicine consultations, docMeet ensures a seamless booking experience.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis qui accusantium dignissimos voluptatem voluptatibus facilis omnis accusamus. Reiciendis minus, quia cum odit at dignissimos saepe illo, ipsa aperiam sed tempore voluptatibus ipsam qui temporibus amet doloremque repellendus dolore facilis eveniet eligendi nesciunt delectus pariatur animi assumenda. Quae adipisci voluptate alias.
+          Beyond scheduling, docMeet offers helpful features like appointment reminders, digital prescriptions, and secure health record management. By streamlining the process, it saves time and reduces the hassle of traditional appointment booking, making quality healthcare more accessible to everyone.
           </p>
 
           {/* Vision Section */}
           <b className="text-xl text-gray-900">Our Vision</b>
           <p className="text-gray-700 leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, aspernatur corporis. Ipsa nisi repellat amet! Repellendus accusantium quo vel corrupti fugit repudiandae exercitationem voluptas explicabo aliquid, ratione cumque. Reiciendis, magnam.
+          To revolutionize healthcare access by making doctor appointments seamless, efficient, and accessible for everyone. We strive to bridge the gap between patients and healthcare providers through technology, ensuring timely and hassle-free medical consultations.
           </p>
         </div>
       </div>
@@ -50,7 +50,8 @@ const About = () => {
     <div className="bg-gray-100 p-6 rounded-lg shadow-md">
       <b className="text-lg font-semibold text-gray-900">Efficiency</b>
       <p className="mt-2">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad recusandae id ipsam expedita, maiores debitis.
+      docMeet streamlines the appointment booking process, reducing wait times and eliminating unnecessary hassles. With quick scheduling, instant confirmations, and timely reminders, healthcare access is faster and more organized.
+
       </p>
     </div>
 
@@ -58,7 +59,7 @@ const About = () => {
     <div className="bg-gray-100 p-6 rounded-lg shadow-md">
       <b className="text-lg font-semibold text-gray-900">Convenience</b>
       <p className="mt-2">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad recusandae id ipsam expedita, maiores debitis.
+      docMeet makes healthcare easy by allowing you to book appointments anytime, anywhere. With telemedicine options, digital prescriptions, and automated reminders, managing your health has never been more hassle-free.
       </p>
     </div>
 
@@ -66,7 +67,7 @@ const About = () => {
     <div className="bg-gray-100 p-6 rounded-lg shadow-md">
       <b className="text-lg font-semibold text-gray-900">Personalization</b>
       <p className="mt-2">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad recusandae id ipsam expedita, maiores debitis.
+      docMeet offers a tailored healthcare experience by allowing you to choose your preferred doctors, set appointment preferences, and access personalized health records. Enjoy a seamless and customized journey to better health.
       </p>
     </div>
   </div>

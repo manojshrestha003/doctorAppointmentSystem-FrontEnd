@@ -44,7 +44,7 @@ const TopDoctors = () => {
   {/* More Button */}
   <button 
     onClick={() => { navigate('/doctors'); scrollTo(0,0); }} 
-    className="mt-6 px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+    className="mt-6 px-5 py-2 bg-green-500 text-white rounded-lg hover:bg-green-300 transition"
   >
     More
   </button>

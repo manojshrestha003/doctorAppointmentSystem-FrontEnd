@@ -9,7 +9,7 @@ const Footer = () => {
         <div className='flex flex-col itemssss-center md:items-start text-center md:text-left gap-4'>
           <img src={assets.docMeet} alt='Logo' className='w-32  border-r-4 rounded-lg' />
           <p className='text-gray-600 text-sm max-w-sm'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit accusantium qui facilis adipisci at necessitatibus magni consectetur, sint consequuntur, id nam sapiente voluptas exercitationem vel.
+          We simplify doctor appointment booking with an easy-to-use interface, quick scheduling, and telemedicine access. Manage health records, get reminders, and enjoy hassle-free healthcare anytime.
           </p>
         </div>
 
@@ -36,7 +36,7 @@ const Footer = () => {
       
       {/* Copyright text */}
       <div className='mt-10 border-t border-gray-300 pt-4 text-center text-gray-500 text-sm'>
-        <p>Copyright 2025@manoj - All Rights Reserved</p>
+        <p>Copyright 2025@docMeet - All Rights Reserved  -Manoj Shrestha</p>
       </div>
     </div>
   );

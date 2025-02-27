@@ -26,10 +26,10 @@ const Contact = () => {
         <div className="w-full md:w-1/2 space-y-4 text-gray-700">
           <p className="text-xl font-semibold text-gray-900">OUR OFFICE</p>
           <p>Kathmandu, Nepal</p>
-          <p>📞 049563325</p>
-          <p>📧 book@gmail.com</p>
+          <p>📞+977-9803824865</p>
+          <p>📧 docmeet@gmail.com</p>
           <p className="font-medium">Careers</p>
-          <button className="mt-4 px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition">
+          <button className="mt-4 px-6 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-300 transition">
             Explore Jobs
           </button>
         </div>
