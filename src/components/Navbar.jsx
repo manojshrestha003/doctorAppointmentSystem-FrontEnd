@@ -74,7 +74,7 @@ const Navbar = () => {
 {/* Mobile Menu */}
 <div className={`${showMenu ? 'fixed w-full h-screen' : 'w-0 h-0'} md:hidden right-0 top-0 z-20 bg-white transition-all duration-300 overflow-hidden`}>
   <div className="flex justify-between items-center p-4 border-b">
-    <img src={assets.logo} alt="logo" className="w-32" />
+    <img src={assets.docMeet} alt="logo" className="w-32" />
     <img 
       onClick={() => setShowMenu(false)} 
       src={assets.cross_icon} 
