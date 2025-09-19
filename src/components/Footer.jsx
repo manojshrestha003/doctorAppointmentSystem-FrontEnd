@@ -1,44 +1,62 @@
 import React from 'react';
 import { assets } from '../assets/assets';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <div className='w-full md:mx-10 bg-white text-gray-900 py-10 px-6'>
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-10'>
+    <footer className="w-full bg-green-800 text-gray-200 py-12 px-6 md:px-12 mt-10 rounded-t-2xl shadow-lg">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Left section */}
-        <div className='flex flex-col itemssss-center md:items-start text-center md:text-left gap-4'>
-          <img src={assets.docMeet} alt='Logo' className='w-32  border-r-4 rounded-lg' />
-          <p className='text-gray-600 text-sm max-w-sm'>
-          We simplify doctor appointment booking with an easy-to-use interface, quick scheduling, and telemedicine access. Manage health records, get reminders, and enjoy hassle-free healthcare anytime.
+        <div className="flex flex-col items-center md:items-start text-center md:text-left gap-4">
+          <img
+            src={assets.docMeet}
+            alt="DocMeet Logo"
+            className="w-32 rounded-lg shadow-md"
+          />
+          <p className="text-gray-300 text-sm leading-relaxed max-w-sm">
+            We simplify doctor appointment booking with an easy-to-use interface,
+            quick scheduling, and telemedicine access. Manage health records, get
+            reminders, and enjoy hassle-free healthcare anytime.
           </p>
         </div>
 
         {/* Center section */}
-        <div className='text-center md:text-left'>
-          <p className='text-lg font-semibold cursor-pointer'>COMPANY</p>
-          <ul className='mt-2 space-y-2 text-gray-600 text-sm'>
-            <li className='hover:text-gray-900 transition cursor-pointer'>Home</li>
-            <li className='hover:text-gray-900 transition cursor-pointer'>About us</li>
-            <li className='hover:text-gray-900 transition cursor-pointer'>Contact us</li>
-            <li className='hover:text-gray-900 transition cursor-pointer'>Privacy Policy</li>
+        <div className="flex flex-col items-center md:items-start text-center md:text-left">
+          <p className="text-lg font-semibold mb-3 text-white">COMPANY</p>
+          <ul className="space-y-2 text-gray-300 text-sm">
+            <li>
+              <Link to="/" className="hover:text-white transition">Home</Link>
+            </li>
+            <li>
+              <Link to="/about" className="hover:text-white transition">About Us</Link>
+            </li>
+            <li>
+              <Link to="/contact" className="hover:text-white transition">Contact Us</Link>
+            </li>
+            <li>
+              <Link to="/privacy" className="hover:text-white transition">Privacy Policy</Link>
+            </li>
           </ul>
         </div>
 
         {/* Right section */}
-        <div className='text-center md:text-left'>
-          <p className='text-lg font-semibold'>GET IN TOUCH</p>
-          <ul className='mt-2 space-y-2 text-gray-600 text-sm'>
-            <li className='hover:text-gray-900 transition'>9564644666</li>
-            <li className='hover:text-gray-900 transition'>mcn@gmail.com</li>
+        <div className="flex flex-col items-center md:items-start text-center md:text-left">
+          <p className="text-lg font-semibold mb-3 text-white">GET IN TOUCH</p>
+          <ul className="space-y-3 text-gray-300 text-sm">
+            <li className="hover:text-white transition">📞 9564644666</li>
+            <li className="hover:text-white transition">✉️ mcn@gmail.com</li>
           </ul>
         </div>
       </div>
-      
-      {/* Copyright text */}
-      <div className='mt-10 border-t border-gray-300 pt-4 text-center text-gray-500 text-sm'>
-        <p>Copyright 2025@docMeet - All Rights Reserved  -Manoj Shrestha</p>
+
+      {/* Copyright */}
+      <div className="mt-10 border-t border-gray-700 pt-4 text-center text-gray-400 text-xs sm:text-sm">
+        <p>
+          © {new Date().getFullYear()} <span className="font-semibold text-white">docMeet</span> — All Rights Reserved
+        </p>
+        <p className="mt-1">Made with ❤️ by <span className="font-semibold">Manoj Shrestha</span></p>
       </div>
-    </div>
+    </footer>
   );
 };
 

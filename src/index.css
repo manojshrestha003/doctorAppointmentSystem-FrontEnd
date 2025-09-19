@@ -5,6 +5,9 @@
 *{
     font-family: Outfit;
 }
+body {
+  @apply bg-gray-50 dark:bg-gray-900 transition-colors;
+}
 
 .active hr{
     @apply block;

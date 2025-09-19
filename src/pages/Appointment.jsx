@@ -47,7 +47,6 @@ const Appointment = () => {
         { docId, slotDate, slotTime },
         { headers: { Authorization: `Bearer ${token}` } } 
       );
-      
 
       if (data.success) {
         toast.success(data.message);
@@ -79,7 +78,6 @@ const Appointment = () => {
       }
 
       let timeSlots = [];
-      
       while (currentDate < endTime) {
         timeSlots.push({
           datetime: new Date(currentDate),
@@ -94,70 +92,90 @@ const Appointment = () => {
 
   if (!docInfo) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
-        <p className="text-lg font-semibold text-gray-500">Loading doctor details...</p>
+      <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+        <p className="text-lg font-semibold text-gray-300">Loading doctor details...</p>
       </div>
     );
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
-      <div className="flex flex-col sm:flex-row gap-6 items-center">
-        <div className="w-40 h-40 overflow-hidden rounded-full border-2 border-gray-300">
-          <img src={docInfo?.image || assets.defaultDoctorImage} alt="Doctor" className="w-full h-full object-cover" />
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+      
+      <div className="max-w-4xl mx-auto backdrop-blur-md bg-white/10 shadow-lg rounded-2xl p-6">
+        {/* Doctor Info */}
+        <div className="flex flex-col sm:flex-row gap-6 items-center">
+          <div className="w-40 h-40 overflow-hidden rounded-full border-2 border-indigo-500 shadow-lg">
+            <img src={docInfo?.image || assets.defaultDoctorImage} alt="Doctor" className="w-full h-full object-cover" />
+          </div>
+          <div>
+            <p className="text-2xl font-bold flex items-center gap-2">
+              {docInfo?.name} 
+              <img src={assets.verified_icon} alt="Verified" className="w-5 h-5" />
+            </p>
+            <p className="text-gray-300 mt-1">{docInfo?.degree} - {docInfo?.speciality}</p>
+            <button className="mt-2 bg-indigo-600 text-white px-4 py-2 rounded-lg shadow hover:bg-indigo-700 transition">
+              {docInfo?.experience} years of experience
+            </button>
+          </div>
         </div>
-        <div>
-          <p className="text-2xl font-bold text-gray-700 flex items-center">
-            {docInfo?.name} <img src={assets.verified_icon} alt="Verified" className="w-5 h-5 ml-2" />
+
+        {/* About Doctor */}
+        <div className="mt-6 p-4 bg-white/10 rounded-xl backdrop-blur-sm border border-gray-700">
+          <p className="text-lg font-semibold flex items-center gap-2">
+            About <img src={assets.info_icon} alt="Info" className="w-5 h-5" />
           </p>
-          <p className="text-gray-600">{docInfo?.degree} - {docInfo?.speciality}</p>
-          <button className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
-            {docInfo?.experience} years of experience
+          <p className="text-gray-200 mt-2">{docInfo?.about}</p>
+        </div>
+
+        {/* Booking Slots */}
+        <div className="mt-6">
+          <p className="text-xl font-semibold mb-3 text-white">Booking Slots</p>
+          <div className="flex flex-wrap gap-3">
+            {docSlots.length > 0 ? (
+              docSlots.map((item, index) => (
+                <div
+                  key={index}
+                  onClick={() => setSlotIndex(index)}
+                  className={`cursor-pointer px-4 py-2 rounded-xl transition-all duration-300 ${
+                    slotIndex === index 
+                      ? 'bg-indigo-500 text-white shadow-lg scale-105' 
+                      : 'bg-gray-700 text-gray-200 hover:bg-indigo-600 hover:text-white'
+                  }`}
+                >
+                  {item[0] && `${daysOfWeek[item[0].datetime.getDay()]} ${item[0].datetime.getDate()}`}
+                </div>
+              ))
+            ) : (
+              <p className="text-gray-400">No available slots</p>
+            )}
+          </div>
+
+          {/* Time Slots */}
+          <div className="mt-4 grid grid-cols-3 sm:grid-cols-4 gap-3">
+            {docSlots.length > 0 && docSlots[slotIndex]?.map((item, index) => (
+              <div
+                key={index}
+                onClick={() => handleSlotClick(index, item.time)}
+                className={`cursor-pointer text-center py-2 rounded-lg transition-all duration-300 ${
+                  selectedSlot === index 
+                    ? 'bg-green-500 text-white shadow-lg scale-105' 
+                    : 'bg-gray-700 text-gray-200 hover:bg-green-500 hover:text-white'
+                }`}
+              >
+                {item.time.toLowerCase()}
+              </div>
+            ))}
+          </div>
+
+          {/* Book Button */}
+          <button
+            onClick={bookAppointment}
+            className="mt-6 w-full bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg hover:bg-green-600 transition-all font-semibold"
+          >
+            Book Appointment
           </button>
         </div>
       </div>
-
-      <div className="mt-6 p-4 bg-gray-100 rounded-lg">
-        <p className="text-lg font-semibold flex items-center">
-          About <img src={assets.info_icon} alt="Info" className="w-5 h-5 ml-2" />
-        </p>
-        <p className="text-gray-600 mt-2">{docInfo?.about}</p>
-      </div>
-
-      <div className="mt-4 font-medium text-gray-600">
-        <p className="text-xl font-semibold text-gray-800">Booking Slots</p>
-        <div className="flex flex-wrap gap-4">
-          {docSlots.length > 0 ? (
-            docSlots.map((item, index) => (
-              <div
-                key={index}
-                onClick={() => setSlotIndex(index)}
-                className={`cursor-pointer p-3 rounded-md ${slotIndex === index ? 'bg-blue-300' : 'bg-blue-100'}`}
-              >
-                {item[0] && `${daysOfWeek[item[0].datetime.getDay()]} ${item[0].datetime.getDate()}`}
-              </div>
-            ))
-          ) : (
-            <p className="text-gray-500">No available slots</p>
-          )}
-        </div>
-      </div>
-
-      <div className="mt-4 p-4 bg-white rounded-lg shadow-lg">
-        {docSlots.length > 0 && docSlots[slotIndex]?.map((item, index) => (
-          <p
-            key={index}
-            onClick={() => handleSlotClick(index, item.time)}
-            className={`cursor-pointer p-3 rounded-md ${selectedSlot === index ? 'bg-blue-300' : 'bg-blue-50'}`}
-          >
-            {item.time.toLowerCase()}
-          </p>
-        ))}
-      </div>
-
-      <button onClick={bookAppointment} className="mt-4 bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600">
-        Book Appointment
-      </button>
     </div>
   );
 };
