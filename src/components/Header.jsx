@@ -53,7 +53,7 @@ const Header = () => {
             className="w-10 rounded-full border"
           />
           <span className="text-sm font-semibold text-gray-700 dark:text-gray-200">
-            500+ Doctors Available
+             Doctors Available
           </span>
         </div>
       </div>

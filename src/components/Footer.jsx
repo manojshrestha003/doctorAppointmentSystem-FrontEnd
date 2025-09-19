@@ -43,8 +43,8 @@ const Footer = () => {
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <p className="text-lg font-semibold mb-3 text-white">GET IN TOUCH</p>
           <ul className="space-y-3 text-gray-300 text-sm">
-            <li className="hover:text-white transition">📞 9564644666</li>
-            <li className="hover:text-white transition">✉️ mcn@gmail.com</li>
+            <li className="hover:text-white transition">📞  +977-980000000000</li>
+            <li className="hover:text-white transition">✉️ docmeet@gmail.com</li>
           </ul>
         </div>
       </div>
@@ -54,7 +54,7 @@ const Footer = () => {
         <p>
           © {new Date().getFullYear()} <span className="font-semibold text-white">docMeet</span> — All Rights Reserved
         </p>
-        <p className="mt-1">Made with ❤️ by <span className="font-semibold">Manoj Shrestha</span></p>
+        <p className="mt-1">Made with  by <span className="font-semibold">Manoj Shrestha</span></p>
       </div>
     </footer>
   );
