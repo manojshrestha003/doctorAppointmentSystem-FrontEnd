@@ -39,6 +39,7 @@ import Pediatricians from './Pediatricians.svg'
 import docMeet from './docMeet.png'
 import docMeet2 from './docMeet2.png'
 import docMeetImg from './docMeetImg.jpg'
+import headerImage from './HeaderImage.jpg'
 
 
 
@@ -62,7 +63,8 @@ export const assets = {
     razorpay_logo,
     docMeet,
     docMeet2,
-    docMeetImg
+    docMeetImg,
+    headerImage
 }
 
 export const specialityData = [
