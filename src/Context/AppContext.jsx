@@ -38,9 +38,17 @@ const AppContextProvier = (props)=>{
                 setUserData(data.userData);
             } else {
                 toast.error(data.message);
+                // Clear invalid token
+                setToken(false);
+                localStorage.removeItem('token');
             }
         } catch (error) {
             toast.error(error.response?.data?.message || "Something went wrong!");
+            // Clear token on auth failure (e.g. expired/invalid token)
+            if (error.response?.status === 401 || error.response?.status === 403) {
+                setToken(false);
+                localStorage.removeItem('token');
+            }
         }
     };
     

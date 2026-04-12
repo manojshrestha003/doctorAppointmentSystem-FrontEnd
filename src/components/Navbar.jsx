@@ -20,6 +20,7 @@ const Navbar = () => {
     setToken(false);
     localStorage.removeItem("token");
     setShowMenu(false);
+    navigate("/");
   };
 
   // NavLink active style
@@ -43,7 +44,7 @@ const Navbar = () => {
         : "bg-white/0 dark:bg-transparent border-b border-transparent"
         }`}
     >
-      <div className="flex items-center justify-between px-2 py-3">
+      <div className="flex items-center justify-between px-4 sm:px-[10%] py-3">
         {/* Logo */}
         <div
           onClick={() => navigate("/")}
@@ -83,7 +84,7 @@ const Navbar = () => {
                 <div className="relative">
                   <img
                     className="w-9 h-9 rounded-xl object-cover ring-2 ring-gray-100 dark:ring-slate-700"
-                    src={userData.image}
+                    src={userData.image || assets.profile_pic}
                     alt="Profile"
                   />
                   <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 rounded-full border-2 border-white dark:border-gray-950" />
@@ -216,7 +217,7 @@ const Navbar = () => {
               <div className="flex items-center gap-3 px-4 py-3 mb-2">
                 <img
                   className="w-10 h-10 rounded-xl object-cover ring-2 ring-gray-100 dark:ring-slate-700"
-                  src={userData.image}
+                  src={userData.image || assets.profile_pic}
                   alt="Profile"
                 />
                 <div>
